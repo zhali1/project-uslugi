@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import MainContent from "../components/MainContent/Index";
 import MainLayout from "../layouts/MainLayout";
-import Blog from "../pages/Blog";
+import Blog from "../pages/Blog/Blog";
 import Pricing from "../pages/Pricing";
 import Products from "../pages/Products/Products";
 
