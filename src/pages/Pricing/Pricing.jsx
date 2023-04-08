@@ -1,26 +1,16 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useProductContext } from "../../contexts/ProductsContext";
-import style from "./Blog.module.scss";
-import cart from "./cart.png";
+import style from "./Pricing.module.scss";
 
 function Blog() {
-  const {
-    getData,
-    products,
-    deleteProduct,
-    addToLiked,
-    cartLength,
-    getCartLength,
-  } = useProductContext();
+  const { deleteProduct, getLikedData, likedProducts } = useProductContext();
   useEffect(() => {
-    getData();
-    getCartLength();
+    getLikedData();
   }, []);
 
   return (
     <div className={style.blog_content}>
-      {products.map((obj) => {
+      {likedProducts.map((obj) => {
         return (
           <div key={obj.id} className={style.container}>
             <div className={style.card}>
@@ -39,20 +29,11 @@ function Blog() {
                   <span></span>
                 </div>
                 <button onClick={() => deleteProduct(obj.id)}>Delete</button>
-                <button onClick={() => addToLiked(obj)}>i like it</button>
               </div>
             </div>
           </div>
         );
       })}
-      <span className={style.badge}>{cartLength}</span>
-      <img
-        component={Link}
-        to={"/"}
-        src={cart}
-        alt="cart"
-        className={style.cart}
-      />
     </div>
   );
 }
