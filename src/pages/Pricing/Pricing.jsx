@@ -3,7 +3,7 @@ import { useProductContext } from "../../contexts/ProductsContext";
 import style from "./Pricing.module.scss";
 
 function Blog() {
-  const { deleteProduct, getLikedData, likedProducts } = useProductContext();
+  const { unLike, getLikedData, likedProducts, getData } = useProductContext();
   useEffect(() => {
     getLikedData();
   }, []);
@@ -28,7 +28,7 @@ function Blog() {
                   <span></span>
                   <span></span>
                 </div>
-                <button onClick={() => deleteProduct(obj.id)}>Delete</button>
+                <button onClick={() => unLike(obj.id)}>"Unlike"</button>
               </div>
             </div>
           </div>

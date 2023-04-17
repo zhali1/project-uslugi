@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useProductContext } from "../../contexts/ProductsContext";
 import style from "./Blog.module.scss";
 import cart from "./cart.png";
 
 function Blog() {
+  const navigate = useNavigate();
   const {
     getData,
     products,
@@ -47,8 +48,9 @@ function Blog() {
       })}
       <span className={style.badge}>{cartLength}</span>
       <img
-        component={Link}
-        to={"/"}
+        onClick={() => {
+          navigate("/pricing");
+        }}
         src={cart}
         alt="cart"
         className={style.cart}

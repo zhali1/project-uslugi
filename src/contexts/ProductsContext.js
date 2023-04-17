@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
 
 const productContext = createContext();
-const API = "https://6429c89a00dfa3b5473a2b58.mockapi.io/prod";
-const LIKED_API = "https://6429c89a00dfa3b5473a2b58.mockapi.io/liked";
+const API = " https://6429c89a00dfa3b5473a2b58.mockapi.io/prod";
+const LIKED_API = " https://6429c89a00dfa3b5473a2b58.mockapi.io/liked";
 
 export const useProductContext = () => {
   return useContext(productContext);
@@ -85,6 +85,14 @@ function ProductsContext(props) {
       console.log(error);
     }
   }
+  async function unLike(id) {
+    try {
+      await axios.delete(`${LIKED_API}/${id}`);
+      getLikedData();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const value = {
     products: state.products,
@@ -95,6 +103,7 @@ function ProductsContext(props) {
     addToLiked,
     deleteProduct,
     getCartLength,
+    unLike,
   };
 
   return (

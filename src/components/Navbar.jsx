@@ -18,6 +18,7 @@ const pages = [
   { title: "Products", link: "/products" },
   { title: "Pricing", link: "/pricing" },
   { title: "Blog", link: "/blog" },
+  { title: "Add Product", link: "/addProduct" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
